@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:theme="@style/ThemeOverlay.Pureblissy.FullscreenContainer"
+    tools:context=".ui.Activities.WelcomeActivity">
+
+    <!--<ImageView
+        android:id="@+id/iv_pureblissy_text"
+        android:layout_width="220dp"
+        android:layout_height="35dp"
+        android:gravity="start"
+        android:layout_marginStart="0dp"
+        app:flow_horizontalBias="0.186"
+        android:src="@drawable/pureblissy_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fullscreen_content"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/welcome_to"
+        android:textAlignment="viewStart"
+        android:textColor="@color/app_blue"
+
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/txt_pureblissy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_welcome_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual."
+        app:layout_constraintBottom_toTopOf="@id/iv_welcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fullscreen_content" />
+
+    <ImageView
+
+        android:id="@+id/iv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:foregroundGravity="left"
+        android:gravity="center_vertical"
+        android:src="@drawable/ic_welcome_final"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_description" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_get_started"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_orange"
+        android:drawableEnd="@drawable/ic_arrow_forward"
+        android:drawablePadding="30dp"
+        android:paddingHorizontal="50dp"
+        android:text="@string/get_started"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_welcome"
+        app:layout_constraintVertical_bias="0.489"
+        tools:ignore="RtlSymmetry" />
+</androidx.constraintlayout.widget.ConstraintLayout>
