@@ -5,11 +5,29 @@
     <string name="welcome_to">Welcome to</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
+    <string name="name">Name</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign UP</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="t_c_accept">By Continuing, you agree to pureblissy’ Term &amp; Conditions and Privacy Policy.</string>
+    <string name="txt_already_have_acc">Already have an account ? Login</string>
+
+
+    <string name="test">"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"</string>
+    <string name="server_client_id">825964320421-6tu91c41vj7dbtv9qg0hjr41prsau51h.apps.googleusercontent.com</string>
+    <string name="server_client_secret">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</string>
+
+
+    <string name="facebook_app_id">3121429394807231</string>
+    <string name="fb_login_protocol_scheme">fb3121429394807231</string>
+    <string name="facebook_client_token">1bebbe8615bda9aec58a0846d25a0906</string>
+
+
 </resources>
