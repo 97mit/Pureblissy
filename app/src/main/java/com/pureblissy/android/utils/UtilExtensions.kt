@@ -7,12 +7,16 @@ import android.os.Bundle
 import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import com.pureblissy.android.R
+import com.stimednp.roommvvm.utils.UtilExtensions.makeLinks
 
 /**
  * Created by cree on Oct/19/2020.
@@ -41,6 +45,25 @@ object UtilExtensions {
     fun EditText.setTextEditable(text: String) {
         this.text = Editable.Factory.getInstance().newEditable(text)
     }
+    fun TextView.changeColor(subStringToColorize: String, @ColorRes colorResId: Int) {
+
+        val spannable: Spannable = SpannableString(text)
+
+        val startIndex = text.indexOf(subStringToColorize, startIndex = 0, ignoreCase = false)
+        val endIndex = startIndex + subStringToColorize.length
+
+        val color: Int = ContextCompat.getColor(context, colorResId)
+
+        if (startIndex != -1) {
+            spannable.setSpan(
+                ForegroundColorSpan(color),
+                startIndex,
+                endIndex,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setText(spannable, TextView.BufferType.SPANNABLE)
+        }
+    }
+
     fun TextView.makeLinks(vararg links: Pair<String, View.OnClickListener>) {
         val spannableString = SpannableString(this.text)
         var startIndexOfLink = -1
@@ -53,7 +76,7 @@ object UtilExtensions {
                 }
 
                 override fun onClick(view: View) {
-                    Selection.setSelection((view as TextView).text as Spannable, 0)
+                    //Selection.setSelection((view as TextView).text as Spannable, 0)
                     view.invalidate()
                     link.second.onClick(view)
                 }

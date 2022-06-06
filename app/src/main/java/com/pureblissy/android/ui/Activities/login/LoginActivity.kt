@@ -32,6 +32,7 @@ import com.google.android.gms.common.api.CommonStatusCodes
 import com.pureblissy.android.R
 import com.pureblissy.android.databinding.ActivityLoginBinding
 import com.pureblissy.android.ui.Activities.signup.SignupActivity
+import com.stimednp.roommvvm.utils.UtilExtensions.changeColor
 import com.stimednp.roommvvm.utils.UtilExtensions.makeLinks
 import com.stimednp.roommvvm.utils.UtilExtensions.openActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -137,6 +138,7 @@ class LoginActivity : AppCompatActivity() {
             Pair("Sign Up", View.OnClickListener {
                 openActivity(SignupActivity::class.java)
             }))
+        binding.tvSignup.changeColor("or continue with",R.color.gray_100)
         binding.tvPolicy.makeLinks(
             Pair("Term & Conditions", View.OnClickListener {
                 Toast.makeText(applicationContext, "Terms of Service Clicked", Toast.LENGTH_SHORT).show()
