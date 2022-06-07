@@ -28,7 +28,7 @@
         android:text="@string/welcome_to"
         android:textAlignment="viewStart"
         android:textColor="@color/app_blue"
-
+        android:fontFamily="@font/arial_bold"
         android:textSize="25sp"
         android:textStyle="bold"
         app:drawableEndCompat="@drawable/txt_pureblissy"
@@ -45,6 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/iv_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        android:fontFamily="@font/arial_regular"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fullscreen_content" />

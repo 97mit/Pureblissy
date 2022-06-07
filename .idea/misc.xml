@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Databinding/DataBindingGettingStarted/gradle/wrapper/caches/transforms-3/f9e3a421cfb26334d3a30609633238fc/transformed/facebook-common-13.2.0/res/drawable/com_facebook_button_icon.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/border_outline.xml" value="0.1" />
+        <entry key="app/src/main/res/font/arial.xml" value="0.16673792218896966" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1141231593038822" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.133203125" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.17760416666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
