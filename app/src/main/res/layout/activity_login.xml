@@ -1,249 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:ignore="HardcodedText"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.Activities.login.LoginActivity">
-
-    <ImageView
-        android:id="@+id/iv_text_pureblissy"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/pureblissy_text"
-        app:layout_constraintBottom_toTopOf="@+id/tv_welcome_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_welcome_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/arial_bold"
-        android:lineSpacingExtra="0.8sp"
-        android:text="Welcome back !"
-        android:textAlignment="center"
-        android:textColor="@color/app_blue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_please_sign_in_to_continue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_text_pureblissy" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_please_sign_in_to_continue"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:lineSpacingExtra="0.8sp"
-
-        android:text="Please Sign in to continue "
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:fontFamily="@font/arial_regular"
-        android:textStyle="normal"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_back" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="@string/prompt_email"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:boxCornerRadiusBottomEnd="5dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        app:boxCornerRadiusTopEnd="5dp"
-        app:boxCornerRadiusTopStart="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_please_sign_in_to_continue">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ellipsize="end"
-            android:maxLines="1"
-            tools:ignore="KeyboardInaccessibleWidget"
-            android:minHeight="48dp"
-            android:selectAllOnFocus="true"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        app:boxCornerRadiusBottomEnd="5dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        app:boxCornerRadiusTopEnd="5dp"
-        app:boxCornerRadiusTopStart="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:minHeight="48dp"
-            android:selectAllOnFocus="true"
-            tools:ignore="KeyboardInaccessibleWidget" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_policy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/t_c_accept"
-        android:lineSpacingExtra="0.5sp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:fontFamily="@font/arial_regular"
-        android:textStyle="normal"
-         android:paddingHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login"
+        android:layout_height="200dp"
+        >
+        <ImageView
+            android:layout_width="84dp"
+            android:background="@color/transparent"
+            android:layout_height="155dp"
+            android:src="@drawable/bg_star"/>
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="84dp"
+            android:layout_height="155dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/bg_star"/>
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bg_rounded_orange"
-        android:text="@string/action_sign_in"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_policy" />
+        android:layout_height="match_parent"
+        tools:ignore="HardcodedText"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context=".ui.Activities.login.LoginActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/arial_regular"
-        android:lineSpacingExtra="0.5sp"
-        android:text="Don't have an account? Sign Up \n or continue with "
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        <ImageView
+            android:id="@+id/iv_text_pureblissy"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/transparent"
+            android:src="@drawable/pureblissy_text"
+            app:layout_constraintBottom_toTopOf="@+id/tv_welcome_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-    <FrameLayout
-        android:id="@+id/googleSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/facebook_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_signup">
-
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/bt_google_sign_in"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_welcome_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/google"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/arial_bold"
+            android:lineSpacingExtra="0.8sp"
+            android:text="Welcome back !"
             android:textAlignment="center"
-            android:visibility="gone" />
+            android:textColor="@color/app_blue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_please_sign_in_to_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_text_pureblissy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_please_sign_in_to_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:lineSpacingExtra="0.8sp"
+
+            android:text="Please Sign in to continue "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/arial_regular"
+            android:textStyle="normal"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_welcome_back" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/prompt_email"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_please_sign_in_to_continue">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:ignore="KeyboardInaccessibleWidget"
+                android:minHeight="48dp"
+                android:selectAllOnFocus="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:selectAllOnFocus="true"
+                tools:ignore="KeyboardInaccessibleWidget" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/t_c_accept"
+            android:lineSpacingExtra="0.5sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/arial_regular"
+            android:textStyle="normal"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_custom_google_login"
-            android:layout_width="fill_parent"
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_rounded_orange"
+            android:text="@string/action_sign_in"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_policy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/arial_regular"
+            android:lineSpacingExtra="0.5sp"
+            android:text="Don't have an account? Sign Up \n or continue with "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login" />
+
+
+        <FrameLayout
+            android:id="@+id/googleSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toStartOf="@+id/facebook_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_signup">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/bt_google_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/google"
+                android:textAlignment="center"
+                android:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_custom_google_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/border_outline"
+                android:drawableStart="@drawable/icons_8_google_96"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/arial_regular"
+                android:gravity="center"
+                android:onClick="onCustomGoogleClick"
+                android:paddingHorizontal="20dp"
+                android:text="@string/google"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/facebook_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/googleSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signup">
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/bt_facebook_sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_custom_fb_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_outline"
+                android:drawableStart="@drawable/com_facebook_button_icon"
+                android:drawablePadding="5dp"
+                android:drawableTint="@color/com_facebook_blue"
+                android:fontFamily="@font/arial_regular"
+                android:onClick="onCustomFbClick"
+                android:paddingHorizontal="20dp"
+                android:text="@string/facebook"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="normal" />
+        </FrameLayout>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/border_outline"
-            android:drawableStart="@drawable/icons_8_google_96"
-            android:drawablePadding="5dp"
-            android:fontFamily="@font/arial_regular"
-            android:gravity="center"
-            android:onClick="onCustomGoogleClick"
-            android:paddingHorizontal="20dp"
-            android:text="@string/google"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textStyle="normal" />
-    </FrameLayout>
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:id="@+id/facebook_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/googleSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup">
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/bt_facebook_sign_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:visibility="gone" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_custom_fb_login"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_outline"
-            android:drawableStart="@drawable/com_facebook_button_icon"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/com_facebook_blue"
-            android:fontFamily="@font/arial_regular"
-            android:onClick="onCustomFbClick"
-            android:paddingHorizontal="20dp"
-            android:text="@string/facebook"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textStyle="normal" />
-    </FrameLayout>
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

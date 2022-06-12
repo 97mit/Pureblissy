@@ -29,6 +29,7 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.gson.Gson
 import com.pureblissy.android.R
 import com.pureblissy.android.databinding.ActivityLoginBinding
 import com.pureblissy.android.ui.Activities.signup.SignupActivity
@@ -68,6 +69,9 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val loading = binding.loading
 
+
+        googleSignIn()
+        facebookSignIn()
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
@@ -148,9 +152,6 @@ class LoginActivity : AppCompatActivity() {
             })
         )
 
-        googleSignIn()
-        facebookSignIn()
-
     }
     fun onCustomFbClick(v: View) {
         if (v === binding.btCustomFbLogin) {
@@ -173,6 +174,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onSuccess(loginResult: LoginResult) {
                 val userId = loginResult?.accessToken?.userId
                 Log.d(TAG, "onSuccess: userId $userId")
+                Log.d(TAG, "onSuccess: userId ===${Gson().toJson(loginResult)}")
 
                 val bundle = Bundle()
                 bundle.putString("fields", "id, email, first_name, last_name, gender,age_range")
@@ -326,6 +328,7 @@ class LoginActivity : AppCompatActivity() {
                             val idToken = credential.googleIdToken
                             val username = credential.id
                             val password = credential.password
+                            Log.d("fdssd======", Gson().toJson(credential).toString())
                             when {
                                 idToken != null -> {
                                     // Got an ID token from Google. Use it to authenticate

@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/font/arial.xml" value="0.16673792218896966" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1141231593038822" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.133203125" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.10175288584865327" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.17760416666666667" />
       </map>
@@ -19,5 +19,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.10175288584865327" />
+      </ProjectState>
+    </option>
   </component>
 </project>
