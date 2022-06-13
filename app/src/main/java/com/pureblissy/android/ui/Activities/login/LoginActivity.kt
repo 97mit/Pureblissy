@@ -29,9 +29,11 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.gson.Gson
 import com.pureblissy.android.R
 import com.pureblissy.android.databinding.ActivityLoginBinding
 import com.pureblissy.android.ui.Activities.signup.SignupActivity
+import com.stimednp.roommvvm.utils.UtilExtensions.changeColor
 import com.stimednp.roommvvm.utils.UtilExtensions.makeLinks
 import com.stimednp.roommvvm.utils.UtilExtensions.openActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,6 +69,9 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val loading = binding.loading
 
+
+        googleSignIn()
+        facebookSignIn()
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
@@ -137,6 +142,7 @@ class LoginActivity : AppCompatActivity() {
             Pair("Sign Up", View.OnClickListener {
                 openActivity(SignupActivity::class.java)
             }))
+        binding.tvSignup.changeColor("or continue with",R.color.gray_100)
         binding.tvPolicy.makeLinks(
             Pair("Term & Conditions", View.OnClickListener {
                 Toast.makeText(applicationContext, "Terms of Service Clicked", Toast.LENGTH_SHORT).show()
@@ -145,9 +151,6 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Privacy Policy Clicked", Toast.LENGTH_SHORT).show()
             })
         )
-
-        googleSignIn()
-        facebookSignIn()
 
     }
     fun onCustomFbClick(v: View) {
@@ -171,6 +174,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onSuccess(loginResult: LoginResult) {
                 val userId = loginResult?.accessToken?.userId
                 Log.d(TAG, "onSuccess: userId $userId")
+                Log.d(TAG, "onSuccess: userId ===${Gson().toJson(loginResult)}")
 
                 val bundle = Bundle()
                 bundle.putString("fields", "id, email, first_name, last_name, gender,age_range")
@@ -324,6 +328,7 @@ class LoginActivity : AppCompatActivity() {
                             val idToken = credential.googleIdToken
                             val username = credential.id
                             val password = credential.password
+                            Log.d("fdssd======", Gson().toJson(credential).toString())
                             when {
                                 idToken != null -> {
                                     // Got an ID token from Google. Use it to authenticate
