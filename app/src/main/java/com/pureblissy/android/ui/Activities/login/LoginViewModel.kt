@@ -4,10 +4,46 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
+import androidx.lifecycle.viewModelScope
 import com.pureblissy.android.R
 import com.pureblissy.android.data.LoginRepository
 import com.pureblissy.android.data.Result
+import com.pureblissy.android.data.model.LoggedInUser
+import com.stimednp.roommvvm.di.NetworkRepository
+import com.stimednp.roommvvm.utils.Constants
+import com.stimednp.roommvvm.utils.DataHandler
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import retrofit2.Response
+import javax.inject.Inject
 
+@HiltViewModel
+class SlideshowViewModel @Inject constructor(private val networkRepository: NetworkRepository) : ViewModel() {
+
+    private val _topHeadlines = MutableLiveData<DataHandler<LoggedInUser>>()
+    val topHeadlines: LiveData<DataHandler<LoggedInUser>> = _topHeadlines
+
+    fun getTopHeadlines() {
+        _topHeadlines.postValue(DataHandler.LOADING())
+        viewModelScope.launch {
+            val response = networkRepository.login(
+                Constants.COUNTRY_CODE,
+                Constants.API_KEY
+            )
+            _topHeadlines.postValue(handleResponse(response))
+        }
+    }
+
+    private fun handleResponse(response: Response<LoggedInUser>): DataHandler<LoggedInUser> {
+        if (response.isSuccessful) {
+            response.body()?.let { it ->
+                return DataHandler.SUCCESS(it)
+            }
+        }
+        return DataHandler.ERROR(message = response.errorBody().toString())
+    }
+}
+@HiltViewModel
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
     private val _loginForm = MutableLiveData<LoginFormState>()

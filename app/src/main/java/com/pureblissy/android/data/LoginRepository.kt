@@ -1,6 +1,10 @@
 package com.pureblissy.android.data
 
 import com.pureblissy.android.data.model.LoggedInUser
+import com.pureblissy.android.network.ApiInterface
+import com.pureblissy.android.ui.Activities.login.LoggedInUserView
+import retrofit2.Response
+import javax.inject.Inject
 
 
 /**
@@ -8,7 +12,7 @@ import com.pureblissy.android.data.model.LoggedInUser
  * maintains an in-memory cache of login status and user credentials information.
  */
 
-class LoginRepository(val dataSource: LoginDataSource) {
+class LoginRepository @Inject constructor(val dataSource: LoginDataSource,val apiInterface: ApiInterface) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
@@ -26,6 +30,10 @@ class LoginRepository(val dataSource: LoginDataSource) {
     fun logout() {
         user = null
         dataSource.logout()
+    }
+
+    suspend fun userLogin(username: String, password: String): Response<LoggedInUser> {
+        return apiInterface.userLogin(username, password)
     }
 
     fun login(username: String, password: String): Result<LoggedInUser> {

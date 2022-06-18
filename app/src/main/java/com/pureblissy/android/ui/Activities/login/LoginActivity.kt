@@ -13,8 +13,10 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.facebook.CallbackManager
@@ -44,7 +46,7 @@ import java.util.*
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
+    private val loginViewModel by viewModels<LoginViewModel>()
     private lateinit var binding: ActivityLoginBinding
     private val REQUEST_CODE_GOOGLE_SIGN_IN = 1 /* unique request id */
     private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
@@ -72,8 +74,6 @@ class LoginActivity : AppCompatActivity() {
 
         googleSignIn()
         facebookSignIn()
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
